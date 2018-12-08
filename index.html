@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Watch the dislikes for the YouTube Rewind in realtime.">
+    <title>F%ck Rewind</title>
+    <meta name="theme-color" content="#0054aa">
+	<link rel="icon" sizes="192x192" href="/assets/icon.png">
+	<link rel="apple-touch-icon" sizes="192x192" href="/assets/icon.png">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="/assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <style>
+	nav{    box-shadow: none;}
+	.blue {background-color:#0054aa!important;}
+	nav .nav-wrapper .brand-logo img { height: 64px;z-index:99px;}
+	nav ul a{color:black}
+	.ratio-block {
+		background-color:black;
+		height:64px;
+		width:100%;
+		overflow:hidden;
+		position:relative;
+	}
+	.ratio-block div {
+		transition: width 3s;
+		font-family: 'Product Sans';
+		font-size:48px;
+		line-height: 64px;
+		padding: 0 1rem;
+	}
+	.nums-div h4 {font-family: 'Product Sans';}
+	.nums {
+		font-weight: bold;
+		white-space: pre;
+		font-family: Roboto,"Product Sans","Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+	}
+	div[class^="perc-"]{
+		position:absolute;
+		top:0px;
+		color:rgba(0,0,0,0.45);
+	}
+	.perc-like{
+		left:1rem;
+	}
+	
+	.perc-dis{
+		right:1rem;
+	}
+	.small-stats{
+		font-size:24px;
+		font-family:'Product Sans';
+	}
+	.card, .card-panel {border-radius: 25px;}
+	.nums-div * { text-align: center !important; }
+	.announce {font-family:'Product Sans';}
+	@media only screen and (max-width: 600px) {
+		.announce{
+				display:none;
+		}
+		.ratio-block div {
+			font-size: 36px;
+		}
+		.perc-like{
+			left:0.5rem;
+		}
+		
+		.perc-dis{
+			right:0.5rem;
+		}
+		.nums-div h1 {font-size: 5.5rem;}
+	}
+	
+	@media only screen and (min-width: 601px) {
+		.ratio-block-parent{
+			padding: 0px 100px !important;
+		}
+		nav ul a svg{    vertical-align: middle;}
+		html, body, .sect {
+			height: 100%;
+			width:100%;
+		}
+		.card,.card-panel{margin: .5rem 6rem 1rem 6rem;}
+		.nums-div h1 {font-size: 8rem;}
+		.announce{
+			visibility:hidden;
+		}
+	}
+    </style>
+  </head>
+  <body>
+  <div class="sect" id="counters">
+	<nav class="section-nav" data-target="counters">
+		<div class="nav-wrapper white black-text">
+			<div class="container">
+				<a class="brand-logo center" href="#"><img src="/assets/logo.png"></a>
+				<ul class="right hide-on-med-and-down" id="nav-mobile">
+				<li><a class="blue waves-effect waves-light btn-large" style="border-radius: 25px;text-transform: none;font-family:'Product Sans';vertical-align: middle;font-size: 20px;" href="https://twitter.com/unironicmaymay" target="_blank"><i class="iconify" data-height="28" data-icon="mdi-twitter" data-width="28" style="margin-right:15px;vertical-align: middle;"></i>@unironicmaymay</a>
+					
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="row" style="margin-top: 64px;">
+		<div class="col s12 center-align announce">
+		<h4></h4>
+		</div>
+		<div class="col s12 m6">
+			<div class="card-panel nums-div">
+				<h1 class="nums" id="likesDiv">Loading...</h1>
+				<h4>Likes</h4>
+			</div>
+		</div>
+		<div class="col s12 m6">
+			<div class="card-panel nums-div">
+				<h1 class="nums" id="disLiDiv">Loading...</h1>
+				<h4>Dislikes</h4>
+			</div>
+		</div>
+		<div class="col s12 ratio-block-parent">
+			<div class="ratio-block">
+				<div class="green" id="like-block" style="height:100%;float: left;"></div>
+				<div class="red" id="dislike-block" style="height:100%;float: right;text-align:right;"></div>
+				<div class="perc-like"></div>
+				<div class="perc-dis"></div>
+			</div>
+		</div>
+		<div class="col s12 m5 offset-m1">
+			<br><br>
+			<div class="card-panel right-align">
+			<div class="row small-stats">
+			<div class="col s8 right-align">Like Increase:</div><div id="like-increase" class="col s4 nums">Loading...</div>
+			<div class="col s8 right-align">Dislike Increase:</div><div id="dislike-increase" class="col s4 nums">Loading...</div>
+			<div class="col s8">Total Ratings:</div><div id="total" class="col s4 nums">Loading...</div>
+			<div class="col s8 right-align">~Remaining dislikes until #1:</div><div id="beat-baby" class="col s4 nums">Loading...</div>
+			</div>
+			</div>
+		</div>
+		
+		<div class="col s12 m5">
+			<br><br>
+			<div class="card-panel right-align">
+			<div class="row small-stats">
+			<div class="col s5 right-align">Likes/min:</div><div id="like-min" class="col s7 nums">Wait 1min...</div>
+			<div class="col s5 right-align">Dislikes/min:</div><div id="dislike-min" class="col s7 nums">Wait 1min...</div>
+			<div class="col s5">Ratings/min:</div><div id="total-min" class="col s7 nums">Wait 1min...</div>
+			<div class="col s5 right-align">Last Updated:</div><div id="updated-min" class="col s7 nums">Wait 1min...</div>
+			</div>
+			</div>
+		</div>
+		
+		<div class="col s12 m5 small-stats hide-on-med-and-up">
+			<br><br>
+			<div class="card-panel center-align">
+			<h3>Contact</h3>
+			<a class="blue waves-effect waves-light btn-large" style="border-radius: 25px;text-transform: none;font-family:'Product Sans';vertical-align: middle;font-size: 20px;" href="https://twitter.com/unironicmaymay" target="_blank"><i class="iconify" data-height="28" data-icon="mdi-twitter" data-width="28" style="margin-right:15px;vertical-align: middle;"></i>@unironicmaymay</a>
+			</div>
+		</div>
+		
+		
+		
+		
+	</div>
+	<div class="fixed-action-btn" style="display:none;">
+		<a class="btn-floating btn-large red"><i class="large material-icons">mode_edit</i></a><ul>
+			<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+			<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+			<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+			<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+		</ul>
+	</div>
+</div>
+  </body>
+  <script src="//code.iconify.design/1/1.0.0-rc1/iconify.min.js"></script>
+	<script src="/assets/materialize.min.js"></script>
+	<script src="/assets/countUp.min.js"></script>
+	<script src="/assets/script.js"></script>
+</html>
