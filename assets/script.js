@@ -102,7 +102,7 @@ function MinuteStats(){
 }
 
 async function FuckRewind(){
-	let page = await fetch('http://api.allorigins.ml/get?url=https%3A%2F%2Fm.youtube.com%2Fwatch%3Fv%3DYbJOTdZBX1g%26app%3Dm');
+	let page = await fetch('https://api.allorigins.ml/get?url=https%3A%2F%2Fm.youtube.com%2Fwatch%3Fv%3DYbJOTdZBX1g%26app%3Dm');
 	let json = await page.json();
 	LikeRegex = /\<span style="color:[ ]*?\#006500"\>(\d+)\<\/span>/g;
 	DislikeRegex = /\<span style="color:[ ]*?\#CB0000"\>(\d+)\<\/span>/g;
