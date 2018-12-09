@@ -1,75 +1,95 @@
-nav{    box-shadow: none;}
-	.blue {background-color:#0054aa!important;}
-	nav .nav-wrapper .brand-logo img { height: 64px;z-index:99px;}
-	nav ul a{color:black}
-	.ratio-block {
-		background-color:black;
-		height:64px;
-		width:100%;
-		overflow:hidden;
-		position:relative;
-	}
-	.ratio-block div {
-		transition: width 3s;
-		font-family: 'Product Sans';
-		font-size:48px;
-		line-height: 64px;
-		padding: 0 1rem;
-	}
-	.nums-div h4 {font-family: 'Product Sans';}
-	.nums {
-		font-weight: bold;
-		white-space: pre;
-		font-family: Roboto,"Product Sans","Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
-	}
-	div[class^="perc-"]{
-		position:absolute;
-		top:0px;
-		color:rgba(0,0,0,0.45);
-	}
-	.perc-like{
-		left:1rem;
+@font-face {
+	font-family: 'Product Sans';
+	src: local('Product Sans'), local('ProductSans-Regular'), url(ProductSans-Regular.woff2) format('woff2'), url(ProductSans-Regular.woff) format('woff');
+	font-weight: 400;
+	font-style: normal
+}
+@font-face {
+	font-family: 'Product Sans';
+	src: local('Product Sans Bold'), local('ProductSans-Bold'), url(ProductSans-Bold.woff2) format('woff2'), url(ProductSans-Bold.woff) format('woff');
+	font-weight: 700;
+	font-style: normal
+}
+nav {box-shadow: none}
+.blue {background-color: #0054aa!important}
+
+nav .nav-wrapper .brand-logo img {
+	height: 64px;
+	z-index: 99px
+}
+nav ul a {color: black}
+
+.ratio-block {
+	background-color: black;
+	height: 64px;
+	width: 100%;
+	overflow: hidden;
+	position: relative
+}
+.ratio-block div {
+	transition: width 3s;
+	font-family: 'Product Sans';
+	font-size: 48px;
+	line-height: 64px;
+	padding: 0 1rem
+}
+.nums-div h4 {font-family: 'Product Sans'}
+
+.nums {
+	font-weight: 700;
+	white-space: pre;
+	font-family: Roboto, "Droid Sans", "Droid Serif", "Segoe UI", "Product Sans", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif!important;
+}
+div[class^="perc-"] {
+	position: absolute;
+	top: 0;
+	color: rgba(0, 0, 0, .45)
+}
+.perc-like {left: 1rem}
+.perc-dis {right: 1rem}
+.small-stats {
+	font-size: 24px;
+	font-family: 'Product Sans'
+}
+.card, .card-panel {border-radius: 25px}
+.nums-div * {text-align: center!important}
+.announce {font-family: 'Product Sans'}
+
+@media only screen and (max-width:600px) {
+	/* Mobile only */
+	.announce {display: none}
+	.nums-div h1 {font-size: 5.5rem}
+	.perc-like {left: .5rem}
+	.perc-dis {right: .5rem}
+	.ratio-block div {font-size: 36px}
+}
+@media only screen and (min-width:601px) {
+	/* Medium and large devices */
+	.ratio-block-parent {padding: 0 100px!important}
+	.card, .card-panel {margin: .5rem 6rem 1rem 6rem}
+	.nums-div h1 {font-size: 8rem}
+	.announce {visibility: hidden}
+	nav ul a svg {vertical-align: middle}
+	html, body, .sect {
+		height: 100%;
+		width: 100%
 	}
 	
-	.perc-dis{
-		right:1rem;
-	}
-	.small-stats{
-		font-size:24px;
-		font-family:'Product Sans';
-	}
-	.card, .card-panel {border-radius: 25px;}
-	.nums-div * { text-align: center !important; }
-	.announce {font-family:'Product Sans';}
-	@media only screen and (max-width: 600px) {
-		.announce{
-				display:none;
-		}
-		.ratio-block div {
-			font-size: 36px;
-		}
-		.perc-like{
-			left:0.5rem;
-		}
-		
-		.perc-dis{
-			right:0.5rem;
-		}
-		.nums-div h1 {font-size: 5.5rem;}
-	}
-	
-	@media only screen and (min-width: 601px) {
-		.ratio-block-parent{
-			padding: 0px 100px !important;
-		}
-		nav ul a svg{    vertical-align: middle;}
-		html, body, .sect {
-			height: 100%;
-			width:100%;
-		}
-		.card,.card-panel{margin: .5rem 6rem 1rem 6rem;}
-		.nums-div h1 {font-size: 8rem;}
-		.announce{
-			visibility:hidden;
-		}
-	}
+}
+
+/* Dark Theme */
+body.dark, .dark .white {
+    background-color: #212121 !important;
+    color: #d3d1d1;
+}
+
+.dark .card, .dark .card-panel{
+    background-color: #262626;
+    color: #d3d1d1;
+}
+
+.dark .brand-logo img {
+    content:url("/assets/logo_dark.png");
+}
+.dark .green {background-color:#125500!important}
+.dark .red {background-color:#aa1400!important}

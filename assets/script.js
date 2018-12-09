@@ -37,7 +37,8 @@ function Announce(str){
 }
 
 async function InitRewind(){
-	M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction: 'left'});
+	//M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction: 'left'});
+	M.Tooltip.init(document.querySelectorAll('.tooltipped'));
 	pushpins = document.querySelectorAll('.section-nav');
 	pushpins_parsed = [];
 	if (pushpins.length!==0){
