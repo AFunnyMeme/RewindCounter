@@ -69,8 +69,9 @@ async function InitRewind(){
 	DislikesMin = Dislikes;
 	TotalMin = Total;
 	setInterval(function(){ MinuteStats(); }, 60000);
-	let meta = await fetch('/meta.json');
+	let meta = await fetch('https://api.allorigins.ml/get?url=https%3A%2F%2Fpastebin.com%2Fraw%2Fbyr0QY8p');
 	Meta = await meta.json();
+	Meta = JSON.parse(Meta.contents);
 	if ('announce' in Meta){Announce(Meta.announce);}
 	setInterval(function(){ CheckMeta(); }, 600000);
 }
@@ -114,9 +115,9 @@ async function FuckRewind(){
 }
 
 async function CheckMeta(){
-	let meta = await fetch('/meta.json');
+	let meta = await fetch('https://api.allorigins.ml/get?url=https%3A%2F%2Fpastebin.com%2Fraw%2Fbyr0QY8p');
 	let json = await meta.json();
-	console.log(json, Meta);
+	let json = JSON.parse(json.contents);
 	if (json.revision!==Meta.revision) {
 		Announce('Page has updated, Refreshing shortly...');
 		setTimeout(function(){ location.reload(); }, 5000);
