@@ -72,7 +72,7 @@ async function InitRewind(){
 	let meta = await fetch('/meta.json');
 	Meta = await meta.json();
 	if ('announce' in Meta){Announce(Meta.announce);}
-	setInterval(function(){ CheckMeta(); }, 3600000);
+	setInterval(function(){ CheckMeta(); }, 600000);
 }
 
 async function UpdateFuck(DontUpdate){

@@ -9,83 +9,8 @@
 	<link rel="apple-touch-icon" sizes="192x192" href="/assets/icon.png">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link href="/assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <style>
-	nav{    box-shadow: none;}
-	.blue {background-color:#0054aa!important;}
-	nav .nav-wrapper .brand-logo img { height: 64px;z-index:99px;}
-	nav ul a{color:black}
-	.ratio-block {
-		background-color:black;
-		height:64px;
-		width:100%;
-		overflow:hidden;
-		position:relative;
-	}
-	.ratio-block div {
-		transition: width 3s;
-		font-family: 'Product Sans';
-		font-size:48px;
-		line-height: 64px;
-		padding: 0 1rem;
-	}
-	.nums-div h4 {font-family: 'Product Sans';}
-	.nums {
-		font-weight: bold;
-		white-space: pre;
-		font-family: Roboto,"Product Sans","Segoe UI",Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
-	}
-	div[class^="perc-"]{
-		position:absolute;
-		top:0px;
-		color:rgba(0,0,0,0.45);
-	}
-	.perc-like{
-		left:1rem;
-	}
+    <link href="/assets/main.css" type="text/css" rel="stylesheet">
 	
-	.perc-dis{
-		right:1rem;
-	}
-	.small-stats{
-		font-size:24px;
-		font-family:'Product Sans';
-	}
-	.card, .card-panel {border-radius: 25px;}
-	.nums-div * { text-align: center !important; }
-	.announce {font-family:'Product Sans';}
-	@media only screen and (max-width: 600px) {
-		.announce{
-				display:none;
-		}
-		.ratio-block div {
-			font-size: 36px;
-		}
-		.perc-like{
-			left:0.5rem;
-		}
-		
-		.perc-dis{
-			right:0.5rem;
-		}
-		.nums-div h1 {font-size: 5.5rem;}
-	}
-	
-	@media only screen and (min-width: 601px) {
-		.ratio-block-parent{
-			padding: 0px 100px !important;
-		}
-		nav ul a svg{    vertical-align: middle;}
-		html, body, .sect {
-			height: 100%;
-			width:100%;
-		}
-		.card,.card-panel{margin: .5rem 6rem 1rem 6rem;}
-		.nums-div h1 {font-size: 8rem;}
-		.announce{
-			visibility:hidden;
-		}
-	}
-    </style>
   </head>
   <body>
   <div class="sect" id="counters">
