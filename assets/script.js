@@ -6,7 +6,7 @@ Meta = {};
 function getOffset(e){return box=e.getBoundingClientRect(),{top:box.top+window.pageYOffset-document.documentElement.clientTop,left:box.left+window.pageXOffset-document.documentElement.clientLeft}};
 function height(e){o=getComputedStyle(e,null).getPropertyValue('height').replace(/\D/g,'');return parseInt(o)}
 function round(value,precision){var multiplier=Math.pow(10,precision||0);return Math.round(value*multiplier)/multiplier}
-function PrintDate(){date=new Date();return((date.getHours()>12)?(date.getHours()-12):date.getHours())+':'+(date.getMinutes()<10?'0':''+date.getMinutes())+':'+date.getSeconds()+' '+((date.getHours()>12)?'PM':'AM')+' '+date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]}
+function PrintDate(){date=new Date();return((date.getHours()>12)?(date.getHours()-12):date.getHours())+':'+((date.getMinutes()<10?'0':'') + date.getMinutes() )+':'+((date.getSeconds()<10?'0':'') + date.getSeconds() )+' '+((date.getHours()>12)?'PM':'AM')+' '+date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]}
 
 function GetDifference(){
 	if (Dislikes>Likes){
@@ -116,6 +116,7 @@ async function FuckRewind(){
 async function CheckMeta(){
 	let meta = await fetch('/meta.json');
 	let json = await meta.json();
+	console.log(json, Meta);
 	if (json.revision!==Meta.revision) {
 		Announce('Page has updated, Refreshing shortly...');
 		setTimeout(function(){ location.reload(); }, 5000);
