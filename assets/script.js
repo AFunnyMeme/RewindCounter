@@ -31,7 +31,7 @@ function Announce(str){
 	if (str.length!==0){
 		document.querySelector('.announce').style.visibility='visible';
 		document.querySelector('.announce').style.display='block';
-		document.querySelector('.announce h4').innerHTML=str;
+		document.querySelector('.announce').innerHTML=str;
 	}
 	
 }
