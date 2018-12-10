@@ -78,7 +78,7 @@ div[class^="perc-"] {
 }
 
 /* Dark Theme */
-body.dark, .dark .white {
+body.dark, .dark body, .dark .white {
     background-color: #212121 !important;
     color: #d3d1d1;
 }

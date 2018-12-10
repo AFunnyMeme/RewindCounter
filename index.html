@@ -10,7 +10,9 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link href="/assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="/assets/main.css" type="text/css" rel="stylesheet">
-	
+	<script>
+	if (window.location.search.startsWith('?dark')) document.querySelector('html').setAttribute('class','dark');
+	</script>
   </head>
   <body>
   <div class="sect" id="counters">
@@ -49,8 +51,8 @@
 			<div class="ratio-block">
 				<div class="green" id="like-block" style="height:100%;float: left;"></div>
 				<div class="red" id="dislike-block" style="height:100%;float: right;text-align:right;"></div>
-				<div class="perc-like"></div>
-				<div class="perc-dis"></div>
+				<div class="perc-like tooltipped" data-position="right" data-tooltip=""></div>
+				<div class="perc-dis tooltipped" data-position="left" data-tooltip=""></div>
 			</div>
 		</div>
 		<div class="col s12 m5 offset-m1">

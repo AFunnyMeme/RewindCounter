@@ -20,8 +20,10 @@ function getPercentages(){
 	DislikesPercentage = (Dislikes / Total) * 100;
 	document.querySelector('#like-block').style.width = LikesPercentage+'%';
 	document.querySelector('.perc-like').innerText = round(LikesPercentage,3)+'%';
+	document.querySelector('.perc-like').setAttribute('data-tooltip',LikesPercentage+'%');
 	document.querySelector('#dislike-block').style.width = DislikesPercentage+'%';
 	document.querySelector('.perc-dis').innerText = round(DislikesPercentage,3)+'%';
+	document.querySelector('.perc-dis').setAttribute('data-tooltip',DislikesPercentage+'%');
 }
 function LikeIncrease(){return (Likes-parseInt(localStorage.InitalLikes))};
 function DislikeIncrease(){return (Dislikes-parseInt(localStorage.InitalDislikes))};
