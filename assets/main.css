@@ -31,8 +31,10 @@ nav ul a {color: black}
 	font-family: 'Product Sans';
 	font-size: 48px;
 	line-height: 64px;
-	padding: 0 1rem
+	padding: 0 1rem;
 }
+.ratio-block div[id$="-block"]{width:50%;}
+
 .nums-div h4 {font-family: 'Product Sans'}
 
 .nums {
@@ -61,7 +63,7 @@ div[class^="perc-"] {
 	.nums-div h1 {font-size: 5.5rem}
 	.perc-like {left: .5rem}
 	.perc-dis {right: .5rem}
-	.ratio-block div {font-size: 36px}
+	.ratio-block div {font-size: 36px;}
 }
 @media only screen and (min-width:601px) {
 	/* Medium and large devices */
