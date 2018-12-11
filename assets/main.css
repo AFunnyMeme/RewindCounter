@@ -68,7 +68,7 @@ div[class^="perc-"] {
 @media only screen and (min-width:601px) {
 	/* Medium and large devices */
 	.ratio-block-parent {padding: 0 100px!important}
-	.card, .card-panel {margin: .5rem 6rem 1rem 6rem}
+	.nums-div {margin: .5rem 6rem 1rem 6rem}
 	.nums-div h1 {font-size: 8rem}
 	.announce {visibility: hidden}
 	nav ul a svg {vertical-align: middle}
@@ -76,7 +76,9 @@ div[class^="perc-"] {
 		height: 100%;
 		width: 100%
 	}
-	
+	div[class*="stat-card-"]{min-height:232px;}
+	.stat-card-left{margin-left:6rem;}
+	.stat-card-right{margin-right:6rem;}
 }
 
 /* Dark Theme */
