@@ -40,7 +40,7 @@ nav ul a {color: black}
 .nums {
 	font-weight: 700;
 	white-space: pre;
-	font-family: Roboto, "Droid Sans", "Droid Serif", "Segoe UI", "Product Sans", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif!important;
+	font-family: Roboto, "Droid Sans", "Droid Serif", "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif!important;
 }
 div[class^="perc-"] {
 	position: absolute;
