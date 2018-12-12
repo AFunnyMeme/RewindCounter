@@ -34,7 +34,7 @@ function TimeUntilBeatBaby(){
 	Now = new Date();
 	ZeroHour = new Date();
 	if (BabyLeft===0) return;
-	if (AveragePerMin.length>26) AveragePerMin.slice(Math.max(AveragePerMin.length - 25, 1))
+	if (AveragePerMin.length>26) AveragePerMin = AveragePerMin.slice(Math.max(AveragePerMin.length - 25, 1));
 	total = 0;
 	for(a = 0; a < AveragePerMin.length; a++) {total += parseInt(AveragePerMin[a]);}
 	avg = ((total/AveragePerMin.length)||DislikesPerMin);
